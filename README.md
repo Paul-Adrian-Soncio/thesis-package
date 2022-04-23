@@ -18,4 +18,6 @@ _/stand_alone_ - For Laboratory Head (Frontend & Backend)
 
 _/doc_ - Manuscript
 
+_Copyright ©2022_
+
 
