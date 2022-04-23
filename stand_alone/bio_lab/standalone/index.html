@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Biolab</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<style>
+		#alertLogged {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  display: none;
+		}
+	  </style>
+
+	
+	<div class="limiter">
+		<div class="container-login100">
+		
+			<div class="wrap-login100">
+				
+				
+
+				<form id = "myForm" class="login100-form validate-form">
+					
+					<span class="login100-form-title">
+						<img  class = "logo1" src="images/logo.png"  width="45" height="45"> 
+						BioLab 
+					</span>
+										
+					<div class="alert alert-info text-center" role="alert" id="alertLogged">
+						<label id="alertlabel"></label>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password"    name="password"  placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+				
+
+					<div class="text-center p-t-12">
+						<!-- <span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a> -->
+						<a class="txt2" href="#" data-toggle="modal" data-target="#exampleModal">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+
+				
+				</form>
+				
+				<div class="login100-pic">
+
+					<img src="images/background.jpg" alt="IMG">
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+
+	
+	
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel"><img  class = "logo1" src="images/logo.png"  width="25" height="25">  Biolab</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form id = "frmreg" class="needs-validation" novalidate   >
+			<div class="form-group">
+			 <div>
+				 <label>Type of User</label>
+			 </div>
+			  <select class="form-control" id="txtrole">
+				  <option selected value="User">User</option>
+				  <option  value="Admin">Admin</option>
+
+			  </select>
+			</div>
+
+
+			<div class="form-group">
+				<label for="exampleInputPassword1">Firstname</label>
+				<input type="text" class="form-control" id="txtfname" placeholder="Enter First Name" required>
+				<div class="invalid-feedback">
+				  Please enter First Name
+				</div>
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Middlename</label>
+				<input type="text" class="form-control" id="txtmname" placeholder="Enter Middle Name" >
+				
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Lastname</label>
+				<input type="text" class="form-control" id="txtlname" placeholder="Enter Last Name" required>
+				<div class="invalid-feedback">
+				  Please enter Last Name
+				</div>
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Contact Number</label>
+				<input type="text" class="form-control" id="txtcontactno" placeholder="Enter Contact Number" >	
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Email</label>
+				<input type="text" class="form-control" id="txtemail" placeholder="Enter Email" >				
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputEmail1">Username</label>
+			  <input type="text" class="form-control" id="txtuser" placeholder="Enter username" required>
+			  <div class="invalid-feedback">
+				Please enter a valid username
+			  </div>
+			  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputPassword1">Password</label>
+			  <input type="password" class="form-control" id="txtpassword" placeholder="Enter Password" required>
+			  <div class="invalid-feedback">
+				Please enter a password
+			  </div>
+			</div>
+	
+			<button type="submit" class="btn btn-success">Register</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </form>
+		</div>
+
+	  </div>
+	</div>
+ 	</div>
+
+	 <div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            
+                <div class="modal-body">Select "Confirm" to  Register</div>
+                
+                <div><input id ="hiddeniddel" hidden  ></input></div>
+                <div id = "loadingdelete" class="loading"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-success" onclick="validateModal()">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+	  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+
+  </script>
+ 
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+
+
+
+
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<script type="text/javascript">
+		
+			// window.onload = checkStorage();
+	(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+	  if(localStorage.getItem("biolabuser")){
+		window.location.replace("home.html");
+		}
+    }, false);
+  })();
+
+
+
+			function checkStorage(){
+				if (localStorage.getItem("biolabuser")  !== null) {
+				 window.location ="main.html";
+				// alert(localStorage.getItem("biolabuser"));
+				} 
+			};
+			
+					
+			$("#frmreg").submit(function(event) {
+
+			// make selected form variable
+			var vForm = $(this);
+
+			if (vForm[0].checkValidity() === false) {
+			event.preventDefault()
+			event.stopPropagation()
+			} else {
+			
+		
+				var dialog = confirm("Confirm Registration?");
+				if (dialog) {
+					createReg()
+				}
+				else {
+					alert('cancel')
+				}
+			}
+
+		
+			vForm.addClass('was-validated');
+
+
+			});
+
+		
+		const thisForm = document.getElementById('myForm');
+		thisForm.addEventListener('submit', async function (e) {
+			
+			e.preventDefault();
+		
+			const formData = new FormData(thisForm).entries()
+			
+			const response = await fetch('http://localhost/bioapi/v1/checkloginAdmin.php', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(Object.fromEntries(formData))
+			});
+
+			const result = await response.json();
+			
+		
+			if (result.Status === 1) 
+			{
+				localStorage.setItem('biolabuser',result.User);
+				localStorage.setItem('biolabuserid',result.userid);
+				localStorage.setItem('biolabname',result.fullname);
+				window.location.replace("home.html");
+				// checktoken();
+			}else
+			{
+				// alert(result.Message);
+				document.getElementById('alertlabel').innerHTML
+                = 'Invalid username or password';
+				$("#alertLogged").fadeIn(1000).delay(1000).fadeOut(1000);
+			}
+
+
+			
+		});
+
+		
+        function checktoken() {
+			alert(localStorage.getItem('biolabuser'));
+
+        }
+
+
+        function distroytoken() {
+            localStorage.clear();
+            window.location.replace("index.html");
+
+        }
+
+		function createReg() {
+         
+            // create registration
+            var txtrole = document.getElementById("txtrole").value;
+			var txtfname = document.getElementById("txtfname").value;
+			var txtmname = document.getElementById("txtmname").value;
+			var txtlname = document.getElementById("txtlname").value;
+			var txtcontactno = document.getElementById("txtcontactno").value;
+			var txtemail = document.getElementById("txtemail").value;
+			var txtuser = document.getElementById("txtuser").value;
+			var txtpassword = document.getElementById("txtpassword").value;
+
+
+            const dataToken2 = { "username": txtuser , "password": txtpassword , "fname" : txtfname , "mname": txtmname ,"lname": txtlname,"contactno": txtcontactno , "email": txtemail, "role": txtrole };
+	
+	
+            var apiUrl = 'http://localhost/bioapi/v1/createUser.php';
+           fetch(apiUrl,{
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json'},
+                        body: JSON.stringify(dataToken2)
+                    }).then(response => {
+            return response.json();
+            }).then(data1 => {
+				
+		
+			if (data1.Status === 1) 
+			
+			{
+				$('#exampleModal').modal('hide');
+				document.getElementById('alertlabel').innerHTML
+                = data1.Message;
+				$("#alertLogged").fadeIn(1000).delay(3000).fadeOut(1000);
+				// alert(data1.Message)
+			}
+
+
+            })
+		
+        }
+	
+	
+	
+	</script>
+
+
+</body>
+</html>

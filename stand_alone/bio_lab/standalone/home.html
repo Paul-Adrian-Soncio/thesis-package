@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Biolab</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<style>
+		#alertLogged {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  display: none;
+		}
+		.qr-code {
+		max-width: 100px;
+		max-height: 120px;
+		margin: 10px;
+		position: absolute;
+		vertical-align:middle;
+	
+		}
+		.divimg {
+			position:relative; left:300px; top: 70px;  background-color:yellow;
+			display: none;
+		}
+
+		.userdrop {
+			margin-top: 20px;
+			margin-right: 10px;
+			/* position:relative; left:340px; top: 20px; */
+			
+			
+		}
+
+		.tdcls {
+			font-size: smaller; text-align: center;
+		}
+	  </style>
+
+	
+	<div class="limiter">
+		<div class="container-login100">
+		
+			<div class="wrap-login100">
+				<div class="alert alert-info text-center" role="alert" id="alertLogged">
+					<label id="alertlabel"></label>
+				</div>
+					
+				
+						<div id = "divqr" class = "divimg">
+							<img src=
+							"https://chart.googleapis.com/chart?cht=qr&chl=Hello&chs=160x160&chld=L|0"
+									class="qr-code img-thumbnail img-responsive" />
+						 </div>
+				<form class="form-horizontal frmreg" style="margin-top: auto;">
+					
+					<br>
+
+					<h5>Material Description</h5>
+					<br/>
+					
+					<div class="form-group row">
+						<label class="control-label col-sm-3" >ID:</label>
+						<div class="col-sm-5">
+						  <input type="text" readonly class="form-control" id="txtid">
+						  <input type="text" readonly class="form-control" style="display: none;" id="txtid2">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="control-label col-sm-3" >Date:</label>
+						<div class="col-sm-5">
+						  <input type="text" readonly class="form-control" id="txtdate">
+						</div>
+					</div>
+
+					<div class="form-group row">
+					  <label class="control-label col-sm-3 small" >Sample:</label>
+					  <div class="col-sm-9">
+						<input type="text" class="form-control" id="txtsample" placeholder="Type of Sample">
+
+					
+					</div>
+					</div>
+					<div class="form-group row">
+					  <label class="control-label col-sm-3 small" >Source:</label>
+					  <div class="col-sm-9">
+						<input type="text" class="form-control" id="txtsource" placeholder="Enter Source">
+					  </div>
+					</div>
+					<div class="form-group row">
+						<label class="control-label col-sm-3 small" >Collector:</label>
+						<div class="col-sm-9">
+						  <input type="text" class="form-control" id="txtcollector" placeholder="Collector Name">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<table id="tabledata " class="table table-sm" >
+						
+							<tbody>
+								<tr>
+
+									<th class="tdcls">A</th>
+									<th id = "A1" class="tdcls">1</th>
+									<th id = "A2" class="tdcls">2</th>
+									<th id = "A3"class="tdcls">3</th>
+									<th id = "A4" class="tdcls">4</th>
+									<th id = "A5" class="tdcls">5</th>
+								</tr>
+								<tr>
+
+									<th class="tdcls">B</th>
+									<th id = "B1" class="tdcls">1</th>
+									<th id = "B2" class="tdcls">2</th>
+									<th id = "B3"class="tdcls">3</th>
+									<th id = "B4"class="tdcls" >4</th>
+									<th id = "B5" class="tdcls">5</th>
+								</tr>
+								<tr>
+
+									<th class="tdcls">C</th>
+									<th id = "C1" class="tdcls">1</th>
+									<th id = "C2" class="tdcls">2</th>
+									<th id = "C3" class="tdcls">3</th>
+									<th id = "C4" class="tdcls" >4</th>
+									<th id = "C5" class="tdcls">5</th>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+
+					</div>
+
+					<div class="form-group row">
+						<label class="control-label col-sm-3 small" >Location:</label>
+						<div class="col-sm-9">
+							<select class="form-select" id = "txtlocation">
+							
+								<!-- <option value="1">A</option>
+								<option value="2">B</option>
+								<option value="3">C</option> -->
+							  </select>
+						</div>
+					</div>
+					<button type="button"  id = "btn1" onClick = "hideinputs()" class="btn btn-success" style="margin-left: 130px">Next</button>
+					<button type="button"  id = "btn2" onClick = "creatematerials()"   class="btn btn-success" disabled>Save</button>
+					
+					<button type="button" id = "btn3" onClick = "printDiv('divqr')" style="display: none" class="btn btn-primary">Print</button>
+					
+
+
+					
+				
+				  </form>
+				 
+					<div class="dropdown userdrop">
+						<button class=" dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Dropdown
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						  <button class="dropdown-item" onClick="distroytoken()" type="button">Log Out</button>
+						 
+						</div>
+					  </div>
+					
+				<div class="login100-pic">
+				
+					<img src="images/home.png" alt="IMG">
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+
+	
+	
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel"><img  class = "logo1" src="images/logo.png"  width="25" height="25">  Biolab</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form id = "frmreg" class="needs-validation" novalidate   >
+			<div class="form-group">
+			 <div>
+				 <label>Type of User</label>
+			 </div>
+			  <select class="form-control" id="txtrole">
+				  <option selected value="User">User</option>
+				  <option  value="Admin">Admin</option>
+
+			  </select>
+			</div>
+
+
+			<div class="form-group">
+				<label for="exampleInputPassword1">Firstname</label>
+				<input type="text" class="form-control" id="txtfname" placeholder="Enter First Name" required>
+				<div class="invalid-feedback">
+				  Please enter First Name
+				</div>
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Middlename</label>
+				<input type="text" class="form-control" id="txtmname" placeholder="Enter Middle Name" >
+				
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Lastname</label>
+				<input type="text" class="form-control" id="txtlname" placeholder="Enter Last Name" required>
+				<div class="invalid-feedback">
+				  Please enter Last Name
+				</div>
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Contact Number</label>
+				<input type="text" class="form-control" id="txtcontactno" placeholder="Enter Contact Number" >	
+			</div>  
+			<div class="form-group">
+				<label for="exampleInputPassword1">Email</label>
+				<input type="text" class="form-control" id="txtemail" placeholder="Enter Email" >				
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputEmail1">Username</label>
+			  <input type="text" class="form-control" id="txtuser" placeholder="Enter username" required>
+			  <div class="invalid-feedback">
+				Please enter a valid username
+			  </div>
+			  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputPassword1">Password</label>
+			  <input type="password" class="form-control" id="txtpassword" placeholder="Enter Password" required>
+			  <div class="invalid-feedback">
+				Please enter a password
+			  </div>
+			</div>
+	
+			<button type="submit" class="btn btn-success">Register</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </form>
+		</div>
+
+	  </div>
+	</div>
+ 	</div>
+
+	 <div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            
+                <div class="modal-body">Select "Confirm" to  Register</div>
+                
+                <div><input id ="hiddeniddel" hidden  ></input></div>
+                <div id = "loadingdelete" class="loading"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-success" onclick="validateModal()">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+	  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+
+
+	  if(!localStorage.getItem("biolabuser")){
+		
+		window.location.replace("index.html");
+
+		}
+
+		getLocdata() 
+		getLocdataall()
+
+
+
+
+    }, false);
+  })();
+
+  </script>
+ 
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+
+
+
+
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<script type="text/javascript">
+
+			
+
+
+
+
+
+
+			const d = new Date();
+			let text = d.toLocaleDateString();
+			
+			document.getElementById('txtdate').value=text;
+			document.getElementById('txtcollector').value=localStorage.getItem('biolabuser');
+			
+			window.onload = getID();
+			document.getElementById('dropdownMenu2').innerText= localStorage.getItem('biolabname');
+			
+			function getLocdata() {
+				var apiUrl = 'http://localhost/bioapi/v1/getlocations.php';
+				fetch(apiUrl,{
+								method: 'GET',
+								headers: { 'Content-Type': 'application/json'}
+							}).then(response => {
+					return response.json();
+					}).then(data1 => {
+						
+				
+					if (data1.Status === 1) 
+					
+						var ele = document.getElementById('txtlocation');
+						for (var i = 0; i < data1.Data.length ; i++) {
+							// console.log(data1.Data[i].loc_name)
+
+							ele.innerHTML = ele.innerHTML + '<option value = "' + data1.Data[i].locid + '"> '+ data1.Data[i].loc_name+ ' </option>';
+						}
+						
+
+					})
+
+
+			}
+
+			function getLocdataall() {
+				var apiUrl = 'http://localhost/bioapi/v1/getlocationsall.php';
+				fetch(apiUrl,{
+								method: 'GET',
+								headers: { 'Content-Type': 'application/json'}
+							}).then(response => {
+					return response.json();
+					}).then(data1 => {
+						
+				
+							if (data1.Status === 1) 
+							{
+								for(var i = 0 ; i < Object.keys(data1.Data).length; i++){
+									// console.log(data1.Data)
+									document.getElementById(data1.Data[i].loc_name).style.backgroundColor = data1.Data[i].loc 
+									
+
+								}
+								
+							}
+						
+						
+
+					})
+
+
+			}
+			function getID(){
+				var apiUrl = 'http://localhost/bioapi/v1/getlastid.php';
+				fetch(apiUrl,{
+								method: 'GET',
+								headers: { 'Content-Type': 'application/json'}
+							}).then(response => {
+					return response.json();
+					}).then(data1 => {
+						
+				
+					if (data1.Status === 1) 
+					
+						{
+							
+							// document.getElementById('txtid').value = format(data1.id, "00000");
+							var dd = data1.id
+							let formatedN = dd.toLocaleString('en-US',{minimumIntegerDigits: 5 , useGrouping: false})
+							document.getElementById('txtid').value = formatedN
+							document.getElementById('txtid2').value = data1.id
+
+
+						
+						}
+
+
+					})
+
+			}
+
+
+
+			function hideinputs() {
+				// document.getElementById('txtsamplelabel').innerHTML = "SDadasd"
+
+				if(document.getElementById('txtsample').value == "")
+				{
+					document.getElementById('txtsample').focus()
+					return false
+				}
+				if(document.getElementById('txtsource').value == "")
+				{
+					document.getElementById('txtsource').focus()
+					return false
+				}
+
+				document.getElementById('btn1').disabled = true;
+				document.getElementById('btn2').disabled = false;
+				// document.getElementById('btn3').style.display = "inline-block";
+
+
+				document.getElementById('txtsample').readOnly = true;
+				document.getElementById('txtsource').readOnly = true;
+				document.getElementById('txtcollector').readOnly = true;
+
+				
+				
+
+
+				document.getElementById('divqr').style.display = "inline-block"
+				qrcode();
+
+			}
+
+			function printDiv(divName) {
+			var printContents = document.getElementById(divName).innerHTML;
+			var originalContents = document.body.innerHTML;
+
+			document.body.innerHTML = printContents;
+
+			window.print();
+
+
+			document.body.innerHTML = originalContents;
+			}
+
+			function checkStorage(){
+				if (localStorage.getItem("biolabuser")  !== null) {
+				 window.location ="main.html";
+				// alert(localStorage.getItem("biolabuser"));
+				} 
+			};
+			
+					
+			
+
+		
+        function checktoken() {
+			alert(localStorage.getItem('biolabuser'));
+
+        }
+
+		
+
+
+        function distroytoken() {
+            localStorage.clear();
+            window.location.replace("index.html");
+
+        }
+
+		function creatematerials() {
+         
+            // create materials data
+            var txtsample = document.getElementById("txtsample").value;	
+			var txtsource = document.getElementById("txtsource").value;
+			var txtcollector = document.getElementById("txtcollector").value;
+			var txtlocation = document.getElementById("txtlocation").value;
+			
+
+			var date = new Date();
+			var dd = date.toISOString().split('T')[0];
+			var userid  = localStorage.getItem('biolabuserid')
+            const dataToken2 = { "dateentry": dd , "sampletype": txtsample , "source" : txtsource , "collector": txtcollector ,"location": txtlocation,"userid": userid  };
+            var apiUrl = 'http://localhost/bioapi/v1/addmaterials.php';
+           fetch(apiUrl,{
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json'},
+                        body: JSON.stringify(dataToken2)
+                    }).then(response => {
+            return response.json();
+            }).then(data1 => {
+				
+		
+			if (data1.Status === 1) 
+			
+			{
+				
+				
+				document.getElementById('alertlabel').innerHTML
+                = data1.Message;
+				$("#alertLogged").fadeIn(1000).delay(3000).fadeOut(1000);
+				
+				document.getElementById('btn3').style.display = "inline-block"
+
+				document.getElementById('btn2').disabled = true;
+				getLocdataall();
+			}
+			else{
+				alert('Error in fetching server')
+			}
+
+            })
+			
+
+			createinventory();
+			
+        }
+
+
+		function createinventory() {
+         
+	
+		 var userid  = localStorage.getItem('biolabuserid');
+		 var txtid = document.getElementById("txtid2").value;	
+		 var desc = "IN";
+
+		 var date = new Date();
+		 var dd = date.toISOString().split('T')[0]+' '+date.toTimeString().split(' ')[0];
+
+
+		 const dataToken2 = { "itemid": txtid , "userid": userid , "desc" : desc , "datetimelogged": dd };
+		 var apiUrl = 'http://localhost/bioapi/v1/createInventory.php';
+		fetch(apiUrl,{
+					 method: 'POST',
+					 headers: { 'Content-Type': 'application/json'},
+					 body: JSON.stringify(dataToken2)
+				 }).then(response => {
+		 return response.json();
+		 }).then(data1 => {
+			 
+	 
+		 if (data1.Status === 1) 
+		 
+		 {
+			 
+			 
+			console.log('added inventory');
+		 }
+		 else{
+			 alert('Error in fetching server')
+		 }
+
+		 })
+		//  console.log(dataToken2);
+	 
+	 }
+	
+			
+			// Specify an onclick function
+			// for the generate button
+			function qrcode() {
+
+				// Generate the link that would be
+				// used to generate the QR Code
+				// with the given data 
+				let finalURL =
+			'https://chart.googleapis.com/chart?cht=qr&chl=' + document.getElementById('txtid2').value +
+				'&chs=160x160&chld=L|0'
+
+				// Replace the src of the image with
+				// the QR code image
+				$('.qr-code').attr('src', finalURL);
+							}
+	
+	
+	</script>
+
+
+</body>
+</html>
