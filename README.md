@@ -12,11 +12,13 @@ This study generally aims to develop an IoT Inventory Management System based on
 
 Folders:
 
-_/mobile_app_ - For the Biological Physical and Sciences Department (Frontend & Backend)
+_/mobile_app_ - for the Biological Physical and Sciences Department (frontend & backend)
 
-_/stand_alone_ - For the Laboratory Head only (Frontend & Backend)
+_/stand_alone_ - for the Laboratory Head only (frontend & backend)
 
-_/doc_ - Manuscript
+_/doc_ - thesis manuscript and manual
+
+_/db_ - sql file
 
 _Copyright ©2022_
 
