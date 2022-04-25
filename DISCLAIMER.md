@@ -2,12 +2,4 @@ This software project and its corresponding documentation  entitled “IOT INVEN
 
 We hereby grant the College of Information and Communications Technology permission to freely use, publish in local or international journal/conferences, reproduce, or distribute publicly the paper and electronic copies of this software project and its corresponding documentation in whole or in part, provided that we are acknowledged.
 
-
-AYRRA JANE R. AMIO
-MC KELLY D. CASTRO
-WINSTON C. SEVILLA
-PAUL ADRIAN D. SONCIO
-JOSE MARI C. WONG
-
-
 Copyright ©2022
