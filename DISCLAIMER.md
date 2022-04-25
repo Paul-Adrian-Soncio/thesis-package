@@ -1,5 +1,13 @@
-We hereby declare that this dissertation is our own original work and has not been submitted before to any institution for assessment purposes.
+This software project and its corresponding documentation  entitled “IOT INVENTORY MANAGEMENT SYSTEM FOR ULTRA-LOW BIOFREEZER IN MQTT FRAMEWORK” is submitted to the College of Information and Communications Technology, West Visayas State University, in partial fulfillment of the requirements for the degree, Bachelor of Science in Information Technology. It is the product of our own work, except where indicated text.
 
-Further, We have acknowledged all sources used and have cited these in the reference section.
+We hereby grant the College of Information and Communications Technology permission to freely use, publish in local or international journal/conferences, reproduce, or distribute publicly the paper and electronic copies of this software project and its corresponding documentation in whole or in part, provided that we are acknowledged.
+
+
+AYRRA JANE R. AMIO
+MC KELLY D. CASTRO
+WINSTON C. SEVILLA
+PAUL ADRIAN D. SONCIO
+JOSE MARI C. WONG
+
 
 Copyright ©2022
