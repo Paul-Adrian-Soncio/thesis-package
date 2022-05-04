@@ -20,6 +20,8 @@ _/doc_ - thesis manuscript and manual
 
 _/db_ - sql file
 
+_/arduino_ - arduino source code
+
 _Copyright ©2022_
 
 
